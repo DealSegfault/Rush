@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Macondo');
 
+html {
+    height: 100%;
+}
+
 body{
 	margin:0;
 	padding:0;
@@ -49,12 +53,19 @@ section > article > p{
 	font-family: 'Macondo', cursive;
 }
 
+/* will take color from parent and remove the underline */
+section > article > p > a{
+    color: inherit;
+    text-decoration: none;
+} 
+
 /* Add a black background color to the top navigation */
 .topnav {
     position: fixed;
     width: 100%;
     background-color: #333;
     overflow: hidden;
+    font-family: 'Macondo', cursive;
 }
 
 /* Style the links inside the navigation bar */
@@ -66,16 +77,60 @@ section > article > p{
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    font-family: 'Macondo', cursive;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+    color: #fff;
+  text-shadow: 0 0 10px white;
+  background-color: #888;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
     background-color: #4CAF50;
     color: white;
+}
+
+form{
+    color: inherit;
+    font-size: inherit;
+    font-weight: bold;
+    font-family: 'Macondo', cursive;
+    font-size: 17px;
+    color: white;
+}
+
+
+input[type=text]{
+    font-family: 'Macondo', cursive;
+    font-size: 17px;
+    color: white;
+    background-color: lightblue;
+}
+
+input[type=password]{
+    font-family: 'Macondo', cursive;
+    font-size: 17px;
+    color: white;
+    background-color: lightblue;
+}
+
+select
+{
+    display:hidden;
+}
+
+
+.product{
+height: 100%;
+background-repeat: no-repeat;
+background-attachment: fixed;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b3dced+0,29b8e5+50,bce0ee+100;Blue+Pipe */
+background: rgb(179,220,237); /* Old browsers */
+background: -moz-linear-gradient(-45deg, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
