@@ -1,4 +1,6 @@
 <?php
+	session_start();
+
 	function secure($string)
 	{
 		$string = htmlspecialchars($string);
