@@ -18,12 +18,14 @@ function		connect_2()
 <?php include ("incl/left_menu.php"); ?>
 
 
-
-
+<ul class="main">
 <?php 
 
     $link = connect_2(); 
-    $result = mysqli_query($link, "SELECT * FROM products WHERE category = 'men'");
+  
+    $result = mysqli_query($link, "SELECT * FROM products WHERE category = '".basename($_SERVER['PHP_SELF'], ".php")."'");
+    if ($_POST['submit'] == "filter" && $_POST['category'] != "All")
+      $result = mysqli_query($link, "SELECT * FROM products WHERE category = '".basename($_SERVER['PHP_SELF'], ".php")."' AND sub_category = '".$_POST['category']."'");
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
     {
     ?>
@@ -42,6 +44,9 @@ function		connect_2()
     <?php 
     }
     ?>
+</ul>
+
+
 </body>
 </html>
 
