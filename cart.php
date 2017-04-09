@@ -20,13 +20,29 @@
 		}
 	}
 
-	function add_elem($id)
+	function add_elem($id, $q)
 	{
-		$_SESSION[$id]++;
+		if ($q > 0)
+			$_SESSION[$id] += $q;
+		else
+			$_SESSION[$id]++;
 	}
 
-	function rm_elem($id)
+	function rm_elem($id, $q)
 	{
-		$_SESSION[$id]--;
+		if ($q > 0)
+			$_SESSION[$id] -= $q;
+		else
+			$_SESSION[$id]--;
 	}
+?>
+
+<?php 
+	if ($_POST['submit'] == "add")
+		add_elem($_POST['id']);
+	if ($_POST['submit'] == "remove")
+		rm_elem($_POST['id']);
+
+	read_cart();
+
 ?>
