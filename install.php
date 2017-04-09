@@ -1,11 +1,17 @@
 <?php
 session_start();
+
 $_SESSION['database'] = "on";
-$link = mysqli_connect("localhost", "root", "root", "", "8080");
+
+$link = mysqli_connect("localhost", "root", "toor", "", "8080");
+
 if (mysqli_connect_errno())
 	echo "Failed to connect to MySQL : " . mysqli_connect_error();
+
 mysqli_query($link, "CREATE DATABASE IF NOT EXISTS db_rush;");
+
 mysqli_query($link, "use db_rush");
+
 mysqli_query($link, "CREATE TABLE IF NOT EXISTS users
 (
 	id_user INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -15,6 +21,7 @@ mysqli_query($link, "CREATE TABLE IF NOT EXISTS users
 	secret_answer VARCHAR(64) NOT NULL,
 	admin ENUM('yes','no') DEFAULT 'no' NOT NULL
 );");
+
 mysqli_query($link, "CREATE TABLE IF NOT EXISTS cart
 (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -27,6 +34,7 @@ mysqli_query($link, "CREATE TABLE IF NOT EXISTS cart
 	order_confirmed ENUM('yes', 'no') DEFAULT 'no' NOT NULL,
 	order_date DATETIME
 );");
+
 mysqli_query($link, "CREATE TABLE IF NOT EXISTS products
 (
 	id_product INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -53,7 +61,7 @@ if (mysqli_num_rows(mysqli_query($link, "SELECT * FROM products")) == 0)
 (null, 'Special_Keke', 'https://raw.githubusercontent.com/agavrel/42-Projects/master/Piscine_PHP/Rush00/resources/glasses2.png', '45.95', 'women', 'glasses'),
 (null, 'Plus_didee', 'https://raw.githubusercontent.com/agavrel/42-Projects/master/Piscine_PHP/Rush00/resources/glasses3.png', '23.95', 'women', 'glasses'),
 (null, 'Marvelous', 'https://raw.githubusercontent.com/agavrel/42-Projects/master/Piscine_PHP/Rush00/resources/glasses4.png', '69.95', 'men', 'glasses'),
-(null, 'Macho', 'https://raw.githubusercontent.com/agavrel/42-Projects/master/Piscine_PHP/Rush00/resources/glasses5.png', '12.95', 'men', 'glasses');
+(null, 'Macho', 'https://raw.githubusercontent.com/agavrel/42-Projects/master/Piscine_PHP/Rush00/resources/glasses5.png', '12.95', 'men', 'glasses');");
 }
 
 

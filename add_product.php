@@ -32,19 +32,19 @@ function		connect_4()
 
 
 
-<div style="width: 100%; height: 300px;display:flex; align-content:center; align-items:center;background-color: #E8E7E8; justify-content: space-around;margin-bottom: 15px;">
+<div style="margin-top: 5vh; margin-left: 5vw;">
 	<form method="post" action="add_product.php">
 			<span>Product name :&nbsp;<input class="field" type="text" name="name" required="true"></span><br /><br />
 			<span>Image URL :&nbsp;<input class="field" type="text" name="img_url" required="true"></span><br /><br />
 			<span>Price :&nbsp;<input class="field" type="number" step=0.01 name="price" required="true"></span><br /><br />
 			<span>Sexe :&nbsp;
-				<select name="sexe" style="width: 295px; height: 20px;">
+				<select name="sexe" style="width: 120px; height: 2vh;">
 					<option value="men">men</option>
 					<option value="women">women</option>
 				</select>
 			</span><br /><br />
 			<span>Type :&nbsp;
-				<select name="type" style="width: 295px; height: 20px;">
+				<select name="type" style="width: 120px; height: 2vh;">
 					<option value="scarf">Scarf</option>
 					<option value="pull">Pullover</option>
                     <option value="glasses">Glasses</option>

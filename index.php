@@ -7,9 +7,23 @@
 	}
 ?>
 
+<?php
+
+function db_connect()
+{
+	$link = mysqli_connect("localhost", "root", "root", "db_test", "8080");
+	if (mysqli_connect_errno())
+		echo "Failed to connect to MySQL : " . mysqli_connect_error();
+	return ($link);
+}
+
+$link = db_connect();
+if ($_SESSION['database'] !== "on")
+	include_once 'install.php';
+?>
+
 <!DOCTYPE html>
 <html>
-
 <?php include 'incl/header.php'; ?>
      <body>
 	

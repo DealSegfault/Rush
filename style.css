@@ -77,7 +77,7 @@ section > article > p > a{
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 2vh;
     font-family: 'Macondo', cursive;
 }
 
@@ -200,7 +200,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', end
     font-size: inherit;
     font-weight: bold;
     font-family: 'Macondo', cursive;
-    font-size: 17px;
+    font-size: 5vh;
     color: white;
     float:left;
     padding-right:2px;

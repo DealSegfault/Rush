@@ -56,4 +56,56 @@
 <?php 		}	
 	    }
 	}
-?>
+
+	function add_element($nom, $img, $price, $category, $sub)
+	{
+		if (!$nom || !$img || !$price || !$category || !$sub)
+			return (0);
+		$nom = secure($nom);
+		$img = secure($img);
+		$price = secure($price);
+		$category = secure($category);
+		$sub = secure($sub);
+		$con = connect();
+		if (!mysqli_select_db($con, "db_test"))
+			return (0);
+		$query = mysqli_query($con, "INSERT INTO products VALUES (NULL,'".$nom."', '".$img."', '".$price."', '".$category."', '".$sub."')");
+		return (1);
+	}
+	function rm_element($nom)
+	{
+		$con = connect();
+		if (!mysqli_select_db($con, "db_test"))
+			return (0);
+		$query = mysqli_query($con, "DELETE FROM products WHERE id_product='".$nom."'");
+		return (1);
+	}
+
+	function read_cart_admin()
+	{
+		$link = connect();
+		if (!mysqli_select_db($link, "db_test"))
+			return (0);
+		$result = mysqli_query($link, "SELECT * FROM products");
+    if ($_POST['submit'] == "filter" && $_POST['category'] != "All")
+      $result = mysqli_query($link, "SELECT * FROM products");
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+    {
+    ?>
+        <div id="addprod">
+        <form method="post" action="myaccount.php">
+            <div class="item">
+                <div><img width="290px" height="400px" src="<?= $row['img_url']; ?>"></div>
+                <div><span><?= $row['title']; ?></span></div>
+                <div><span><?= $row['price']; ?>€</span></div>
+                <div><input type="hidden" name="id" value="<?= $row['id_product']; ?>"></div>
+                <div><input type="hidden" name="price" value="<?= $row['price']; ?>"></div>
+                <div><input class="button" type="submit" name="submit" value="Remove this Product"></div>
+            </div>
+        </form>
+        </div>
+    <?php 
+    }
+    ?>
+
+   <?php } ?>
