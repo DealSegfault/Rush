@@ -73,4 +73,19 @@
 		}
 		return (0);
 	}
+
+	function is_admin($login)
+	{
+		$connection = connect();
+		mysqli_select_db($connection, "db_test");
+		$query = mysqli_query($connection, "SELECT * FROM users WHERE login='".$login."' AND admin='1'");
+		if (mysqli_num_rows($query) > 0)
+		{
+			return (1);
+		}
+		else
+		{
+			return (0);
+		}
+	}
 ?>
