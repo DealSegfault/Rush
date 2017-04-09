@@ -1,6 +1,10 @@
 <?php
 	include "cart.php";
 	init_cart();
+	if ($_POST['login'] != "")
+	{
+		$_SESSION['user'] = $_POST['login'];
+	}
 ?>
 
 <!DOCTYPE html>

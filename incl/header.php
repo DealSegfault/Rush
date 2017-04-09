@@ -17,14 +17,14 @@
 
 <?php
 if (auth($_POST['login'], $_POST['passwd'], $_SERVER['REMOTE_ADDR']) != 1 && $_SESSION['user'] == "")
-				{	
+	{	
 ?>
-<form method="post" action="index.php">
-	Username: <input type="text" name="login" <?php echo 'value="' . $_SESSION['login'] . '"'?> />
-	<br />
-	Password: <input type="password" name="passwd" <?php echo 'value="' . $_SESSION['passwd'] . '"'?> />
-	<input type="submit" name="submit" value="OK" />
-</form>
+			<form method="post" action="index.php">
+				Username: <input type="text" name="login" <?php echo 'value="' . $_SESSION['login'] . '"'?> />
+				<br />
+				Password: <input type="password" name="passwd" <?php echo 'value="' . $_SESSION['passwd'] . '"'?> />
+				<input type="submit" name="submit" value="OK" />
+			</form>
 <?php } ?>
 
 			  	<?php
