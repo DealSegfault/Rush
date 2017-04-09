@@ -23,6 +23,10 @@ function		connect()
     </head>
 	
 <body class="product">
+
+<?php include ("incl/left_menu.php"); ?>
+
+<div class="main">
 <?php 
 
     $link = connect(); 
@@ -45,5 +49,6 @@ function		connect()
     <?php 
     }
     ?>
+</div>
 </body>
 </html>
