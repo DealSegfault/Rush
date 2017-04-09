@@ -11,32 +11,34 @@
   		<a href="women.php">Women</a>
   		<a href="men.php">Men</a>
         <a href=# id="print" onclick="window.print();" />Print</a>
-  		<a href="cart.php">My Cart</a>
+  		<a href="mycart.php">My Cart</a>
   		<a id=username href="#Login">
     
 
-<?php
-if (auth($_POST['login'], $_POST['passwd'], $_SERVER['REMOTE_ADDR']) != 1)
-				{	
-?>
-<form method="post" action="index.php">
-	Username: <input type="text" name="login" <?php echo 'value="' . $_SESSION['login'] . '"'?> />
-	<br />
-	Password: <input type="password" name="passwd" <?php echo 'value="' . $_SESSION['passwd'] . '"'?> />
-	<input type="submit" name="submit" value="OK" />
-</form>
-<?php } ?>
-
+    
 			  	<?php
-
-				if (auth($_POST['login'], $_POST['passwd'], $_SERVER['REMOTE_ADDR']) == 1)
+                if (auth($_POST['login'], $_POST['passwd'], $_SERVER['REMOTE_ADDR']) != 1 && $_SESSION['user'] == "")
+				    {	
+                        ?>
+                    <form method="post" action="index.php">
+	                    Username: <input type="text" name="login" <?php echo 'value="' . $_SESSION['login'] . '"'?> />
+	                        <br />
+	                    Password: <input type="password" name="passwd" <?php echo 'value="' . $_SESSION['passwd'] . '"'?> />
+	                        <input type="submit" name="submit" value="OK" />
+                    </form>
+                <?php } ?>
+               
+                <?php
+				if (auth($_POST['login'], $_POST['passwd'], $_SERVER['REMOTE_ADDR']) == 1 || $_SESSION['user'] != "")
 				{
-					echo "         Welcome " . $_POST['login'];
-					echo '<a id=username href="logout.php"><span>Logout</span></a></li>';
+                    $myaccount = "myaccount.php";
+                    $logout = "logout.php";
+                    echo "      <a href='".$myaccount."'>Welcome ". $_SESSION['user'] ."(check my account)</a><p class=logins><a id=username href='".$logout."'<span>Logout</span></a></li></p>";
 				}
 				else
-				echo '<a id=username href="#">Login / Register</a></li>';
+				echo '<p class=logins> <a id=username href="#">Login / Register</a></li></p>';
 				?>
 		  </a>
 	</div>
     <header class="header"><img class="banner" src="resources/banner.jpg" width="100%"></header>
+

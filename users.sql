@@ -39,7 +39,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `login`, `password`, `ip`, `admin`) VALUES
-(6, 'root', 'ce5ca673d13b36118d54a7cf13aeb0ca012383bf771e713421b4d1fd841f539a', '5.0.0.1', 0);
+(6, 'root', 'ce5ca673d13b36118d54a7cf13aeb0ca012383bf771e713421b4d1fd841f539a', '5.0.0.1', 1);
 
 --
 -- Index pour les tables exportées

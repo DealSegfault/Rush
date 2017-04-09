@@ -1,4 +1,13 @@
-<?php include "auth.php"; ?>
+<?php 
+    include "cart.php";
+    if ($_POST['submit'] == "Add to cart" || $_POST['submit'] == "Remove to cart")
+    {
+        if ($_POST['submit'] == "Add to cart")
+            add_elem($_POST['id'], "");
+        if ($_POST['submit'] == "Remove to cart")
+            rm_elem($_POST['id'], "");
+    }
+?>
 <!DOCTYPE html>
 <?php
 function		connect_2()
@@ -15,12 +24,19 @@ function		connect_2()
 	
 <body class="product">
 
-<?php include ("incl/left_menu.php"); ?>
-
+<div class="nav-container">
+  <form method="post" action="men.php">
+    <select id="sel_id" name="category"  onchange="valuesOfAll(this.value)">
+    <option value="All">All</option>
+    <option value="Scarf">Scarves</option>
+    <option value="Pull">Pulls</option> 
+    <option value="Glasses">Glasses</option>
+  <input type="submit" name="submit" value="filter" />
+</select>
+</div>
 
 <ul class="main">
 <?php 
-
     $link = connect_2(); 
   
     $result = mysqli_query($link, "SELECT * FROM products WHERE category = '".basename($_SERVER['PHP_SELF'], ".php")."'");
@@ -29,7 +45,7 @@ function		connect_2()
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
     {
     ?>
-        <form method="post" action="<?= $new_url_get ?>">
+        <form method="post" action="men.php">
         <li>
             <div class="item">
                 <div><img width="290px" height="400px" src="<?= $row['img_url']; ?>"></div>
@@ -38,6 +54,7 @@ function		connect_2()
                 <div><input type="hidden" name="id" value="<?= $row['id_product']; ?>"></div>
                 <div><input type="hidden" name="price" value="<?= $row['price']; ?>"></div>
                 <div><input class="button" type="submit" name="submit" value="Add to cart"></div>
+                <div><input class="button" type="submit" name="submit" value="Remove to cart"></div>
             </div>
         </li>
         </form>
@@ -49,4 +66,3 @@ function		connect_2()
 
 </body>
 </html>
-

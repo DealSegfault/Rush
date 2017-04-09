@@ -7,26 +7,6 @@ function		check($info, $login)
 	return(true);
 }
 
-
-function		connect()
-{
-	$link = mysqli_connect("localhost", "root", "root", "db_test", "8080");
-	if (mysqli_connect_errno())
-		echo "Failed to connect to MySQL database : " . mysqli_connect_error();
-	return ($link);
-}
-
-
-
-function		display_products($link, $category)
-{
-	$result = mysqli_query($link, "SELECT product FROM category WHERE category = '" . mysqli_real_escape_string($link, $category) . "'");
-	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-		?><html><div><?= $row['product']?></div><br /></html><?php	
-}
-
-
-
 function		check_alrd_registered_users($link, $login, $passwd)
 {
 	$result = mysqli_query($link, "SELECT login  FROM users WHERE login = '" . mysqli_real_escape_string($link, $login) . "'");
@@ -42,7 +22,7 @@ if ($_POST['submit'] == "OK" && $_POST['login'] && $_POST['passwd'])
 {
 
 	$link = connect_to_database();
-	check_alrd_registered_users($link, $_POST['login'], $_POST['passwd'])
+	check_alrd_registered_users($link, $_POST['login'], $_POST['passwd']);
 	if ((check($info, $_POST['login'])) == false)
 		echo "ERROR\n";
 	else
@@ -55,3 +35,26 @@ if ($_POST['submit'] == "OK" && $_POST['login'] && $_POST['passwd'])
 else
 	echo "ERROR\n";
 ?>
+
+<html>
+
+<head>
+        <meta charset="utf-8">
+        <title>Register</title>
+        <link rel="stylesheet" href="style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+<body>
+
+<?php if (auth($_POST['login'], $_POST['passwd'], $_SERVER['REMOTE_ADDR']) != 1)
+				{	?>
+<form method="post" action="index.php">
+	Username: <input type="text" name="login" <?php echo 'value="' . $_SESSION['login'] . '"'?> />
+	<br />
+	Password: <input type="password" name="passwd" <?php echo 'value="' . $_SESSION['passwd'] . '"'?> />
+	<input type="submit" name="submit" value="OK" />
+</form>
+<?php } ?>
+</body>
+</html>

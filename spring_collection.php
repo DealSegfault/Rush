@@ -7,9 +7,9 @@
 
 <body>
 <div class="fadein" align="center">
-  <img class="mySlides" src="resources/spring1.jpg" style="width:500px">
-  <img class="mySlides" src="resources/spring2.jpg" style="width:500px">
-  <img class="mySlides" src="resources/spring3.jpg" style="width:500px">
+  <img class="mySlides" src="https://raw.githubusercontent.com/agavrel/42-Projects/master/Piscine_PHP/Rush00/resources/spring1.jpg" style="width:500px">
+  <img class="mySlides" src="https://raw.githubusercontent.com/agavrel/42-Projects/master/Piscine_PHP/Rush00/resources/spring2.jpg" style="width:500px">
+  <img class="mySlides" src="https://raw.githubusercontent.com/agavrel/42-Projects/master/Piscine_PHP/Rush00/resources/spring3.jpg" style="width:500px">
 </div>
 <script>
 $(function(){
