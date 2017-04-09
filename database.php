@@ -1,9 +1,12 @@
 <?php
+	session_start();
+
 	function secure($string)
 	{
 		$string = htmlspecialchars($string);
 		return ($string);
 	}
+
 	function connect() {
 		$server = "localhost";
 		$user = "root";
@@ -15,3 +18,4 @@
 			return ($con);
 	}
 ?>
+

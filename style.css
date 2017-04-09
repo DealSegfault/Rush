@@ -6,7 +6,8 @@ html {
 
 body{
 	margin:0;
-	padding:0;    
+	padding:0;
+    background-color:lightblue;
 }
 
 h1 {
@@ -139,10 +140,75 @@ background: linear-gradient(135deg, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
-.main {
-    width: 200px;
-    display: inline-block;
-    vertical-align: top;
-}
-/* left menu css */
 
+/* remove dots on the side of our product list */
+.product ul {
+  list-style-type: none;
+}
+
+#container{
+    font-size:0;
+    width:100vw;
+}
+
+
+.item{
+    color: inherit;
+    font-size: inherit;
+    font-weight: bold;
+    font-family: 'Macondo', cursive;
+    font-size: 17px;
+    color: white;
+    float:left;
+    padding-bottom:3vh;
+    padding-right:3vw;
+}
+
+@media screen and (max-width: 20vw) {
+    #container{
+        width:20vw;
+    }
+}
+
+@media screen and (min-width: 21vw) and (max-width: 40vw) {
+   #container{
+        width:40vw;
+    }
+}
+@media screen and (min-width: 41vw) and (max-width: 60vw) {
+   #container{
+        width:60vw;
+    }
+}
+@media screen and (min-width: 61vw) and (max-width: 80vw) {
+   #container{
+        width:80vw;
+    }
+}
+
+/* when click send id_product when clicking on 1 - + */
+
+
+/* spring collection slideshow */
+.fadein { position:relative; width:500px; height:332px;}
+.fadein img { position:absolute; padding-top:40px; padding-left:40px; border-radius:50px; border:20px; border-color:white; margin-left: auto;
+	margin-right: auto;
+	display: block;}
+
+.button{
+       color: inherit;
+    font-size: inherit;
+    font-weight: bold;
+    font-family: 'Macondo', cursive;
+    font-size: 17px;
+    color: white;
+    float:left;
+    padding-right:2px;
+    background:royalblue;
+}
+
+.button hover{
+         color: #fff;
+  text-shadow: 0 0 10px white;
+  background-color: #888;
+}

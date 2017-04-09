@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-
 <?php
-function		connect()
+function		connect_2()
 {
 	$link = mysqli_connect("localhost", "root", "root", "db_test", "8080");
 	if (mysqli_connect_errno())
@@ -27,18 +26,19 @@ function		connect()
 
 <?php include ("incl/left_menu.php"); ?>
 
-<div class="main">
+
+
 
 <?php 
 
-    $link = connect(); 
+    $link = connect_2(); 
     $result = mysqli_query($link, "SELECT * FROM products WHERE category = 'men'");
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
     {
     ?>
         <form method="post" action="<?= $new_url_get ?>">
         <li>
-            <div style="display:inline-block;">
+            <div class="item">
                 <div><img width="290px" height="400px" src="<?= $row['img_url']; ?>"></div>
                 <div><span><?= $row['title']; ?></span></div>
                 <div><span><?= $row['price']; ?>€</span></div>
@@ -51,6 +51,6 @@ function		connect()
     <?php 
     }
     ?>
-</div>
 </body>
 </html>
+

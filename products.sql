@@ -44,7 +44,16 @@ INSERT INTO `products` (`id_product`, `title`, `img_url`, `price`, `category`, `
 (2, 'pourlesradasses', 'resources/scarf2.png', '145.95', 'women', 'scarf'),
 (3, 'pourlespauvres', 'resources/scarf3.png', '1.95', 'men', 'scarf'),
 (4, 'made_by_grandma', 'resources/scarf4.png', '25.95', 'men', 'scarf'),
-(6, 'old_fashion', 'resources/scarf5.png', '15.95', 'women', 'scarf');
+(5, 'old_fashion', 'resources/scarf5.png', '15.95', 'women', 'scarf'),
+(6, 'he_will_be_back', 'resources/pull1.png', '15.95', 'women', 'pull'),
+(7, 'nice_one', 'resources/pull2.png', '15.95', 'women', 'pull'),
+(8, 'high_education', 'resources/pull3.png', '15.95', 'women', 'pull'),
+(9, 'bad_boy', 'resources/pull4.png', '15.95', 'men', 'pull'),
+(10, 'Vanilla', 'resources/glasses1.png', '15.95', 'women', 'glasses'),
+(11, 'Special_Keke', 'resources/glasses2.png', '15.95', 'women', 'glasses'),
+(12, 'Plus_didee', 'resources/glasses3.png', '15.95', 'women', 'glasses'),
+(13, 'Marvelous', 'resources/glasses4.png', '15.95', 'men', 'glasses'),
+(14, 'Macho', 'resources/glasses5.png', '15.95', 'men', 'glasses');
 
 --
 -- Indexes for dumped tables
