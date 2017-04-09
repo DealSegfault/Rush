@@ -37,7 +37,6 @@
 	}
 ?>
 
-
 <?php 
 	if ($_POST['submit'] == "add")
 		add_elem($_POST['id']);
