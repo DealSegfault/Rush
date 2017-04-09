@@ -11,12 +11,12 @@
   		<a href="women.php">Women</a>
   		<a href="men.php">Men</a>
         <a href=# id="print" onclick="window.print();" />Print</a>
-  		<a href="cart.php">My Cart</a>
+  		<a href="mycart.php">My Cart</a>
   		<a id=username href="#Login">
     
 
 <?php
-if (auth($_POST['login'], $_POST['passwd'], $_SERVER['REMOTE_ADDR']) != 1)
+if (auth($_POST['login'], $_POST['passwd'], $_SERVER['REMOTE_ADDR']) != 1 && $_SESSION['user'] == "")
 				{	
 ?>
 <form method="post" action="index.php">
@@ -29,7 +29,7 @@ if (auth($_POST['login'], $_POST['passwd'], $_SERVER['REMOTE_ADDR']) != 1)
 
 			  	<?php
 
-				if (auth($_POST['login'], $_POST['passwd'], $_SERVER['REMOTE_ADDR']) == 1)
+				if (auth($_POST['login'], $_POST['passwd'], $_SERVER['REMOTE_ADDR']) == 1 || $_SESSION['user'] != "")
 				{
 					echo "         Welcome " . $_POST['login'];
 					echo '<a id=username href="logout.php"><span>Logout</span></a></li>';

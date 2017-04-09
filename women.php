@@ -1,6 +1,7 @@
+<?php include "auth.php"; ?>
 <!DOCTYPE html>
 <?php
-function		connect()
+function		connect_3()
 {
 	$link = mysqli_connect("localhost", "root", "root", "db_test", "8080");
 	if (mysqli_connect_errno())
@@ -9,18 +10,7 @@ function		connect()
 }
 ?>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Women Products</title>
-        <link rel="stylesheet" href="style.css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <div class="topnav" id="myTopnav">
-  		    <a href="index.php">Home</a>
-            <a href=# id="print" onclick="window.print();" />Print</a>
-	    </div>
-        <header class="header"><img class="banner" src="resources/banner.jpg" width="100%"></header>
-    </head>
+ <?php include "incl/header.php"; ?>
 	
 <body class="product">
 
@@ -39,7 +29,7 @@ function		connect()
 <ul class="main">
 <?php 
 
-    $link = connect(); 
+    $link = connect_3(); 
   
     $result = mysqli_query($link, "SELECT * FROM products WHERE category = '".basename($_SERVER['PHP_SELF'], ".php")."'");
     if ($_POST['submit'] == "filter" && $_POST['category'] != "All")
