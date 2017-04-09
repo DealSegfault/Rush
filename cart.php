@@ -29,6 +29,22 @@
 			$_SESSION["'".$id."'"]--;
 	}
 
+	function total_cart()
+	{
+		$total = 0;
+		$con = connect();
+		if (!mysqli_select_db($con, "db_test"))
+			return (0);
+		foreach ($_SESSION as $key => $value)
+		{
+			$key = str_replace("'", "", $key);
+			$result = mysqli_query($con, "SELECT * FROM products WHERE id_product='".$key."'");
+			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+			$total += $value * $row['price'];
+		}
+		return ($total);
+	}
+
 	function read_cart()
 	{
 		$con = connect();

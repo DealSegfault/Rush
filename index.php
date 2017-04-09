@@ -1,8 +1,9 @@
 <?php
 	include "cart.php";
-	if ($_POST['login'] != "")
+	if ($_POST['login'] != "" && $_POST['passwd'] != "")
 	{
-		$_SESSION['user'] = $_POST['login'];
+		if (auth($_POST['login'], $_POST['passwd'], "none") == 1)
+			$_SESSION['user'] = $_POST['login'];
 	}
 	if ($_SESSION['init'] == "")
 		init_cart();
@@ -25,7 +26,7 @@
 				<p><a href="men.php">Men</p>
 			</article>
 			<article style="background-image:url('resources/scarf3.jpg');color:white;">
-				<p><a href="index.php">Login</p><p><a href="index.php">Register</p>
+				<p><a href="register.php">Login</p><p><a href="register.php">Register</p>
 			</article>
 		</section>		
 	</body>

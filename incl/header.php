@@ -16,26 +16,26 @@
     
 
 <?php
-if (auth($_POST['login'], $_POST['passwd'], $_SERVER['REMOTE_ADDR']) != 1 && $_SESSION['user'] == "")
+if (auth($_POST['login'], $_POST['passwd'], $_SERVER['HTTP_X_FORWARDED_FOR']) != 1 && $_SESSION['user'] == "")
 	{	
 ?>
 			<form method="post" action="index.php">
-				Username: <input type="text" name="login" <?php echo 'value="' . $_SESSION['login'] . '"'?> />
+				Username: <input type="text" name="login" value="" />
 				<br />
-				Password: <input type="password" name="passwd" <?php echo 'value="' . $_SESSION['passwd'] . '"'?> />
+				Password: <input type="password" name="passwd" value="" />
 				<input type="submit" name="submit" value="OK" />
 			</form>
 <?php } ?>
 
 			  	<?php
 
-				if (auth($_POST['login'], $_POST['passwd'], $_SERVER['REMOTE_ADDR']) == 1 || $_SESSION['user'] != "")
+				if (auth($_POST['login'], $_POST['passwd'], $_SERVER['HTTP_X_FORWARDED_FOR']) == 1 || $_SESSION['user'] != "")
 				{
 					echo "         Welcome " . $_SESSION['user'];
 					echo '<a id=username href="logout.php"><span>Logout</span></a></li>';
 				}
 				else
-				echo '<a id=username href="#">Login / Register</a></li>';
+				echo '<a id=username href="register.php">Login / Register</a></li>';
 				?>
 		  </a>
 	</div>

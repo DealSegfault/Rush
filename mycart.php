@@ -9,6 +9,9 @@
             rm_elem($_POST['id'], "");
     }
 ?>
-<input width=100% class="button" type="submit" name="submit" value="Checkout">
-   <?php read_cart(); ?>
+<form method=post action="pay.php">
+<input class="button" type="submit" name="checkout" value="Checkout <?php echo total_cart(); ?> €">
+</form>
+
+<?php read_cart(); ?>
 

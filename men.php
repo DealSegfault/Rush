@@ -36,7 +36,6 @@ function		connect_2()
 </select>
 </div>
 
-<?php include ("incl/left_menu.php"); ?>
 
 
 <ul class="main">
@@ -59,7 +58,6 @@ function		connect_2()
                 <div><input type="hidden" name="id" value="<?= $row['id_product']; ?>"></div>
                 <div><input type="hidden" name="price" value="<?= $row['price']; ?>"></div>
                 <div><input class="button" type="submit" name="submit" value="Add to cart"></div>
-                <div><input class="button" type="submit" name="submit" value="Remove to cart"></div>
             </div>
         </li>
         </form>
