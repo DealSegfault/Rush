@@ -12,7 +12,7 @@
 		$query = mysqli_query($connection, "SELECT * FROM users WHERE login='".$login."' AND password='".$passwd."'");
 		if (mysqli_num_rows($query) > 0)
 		{
-			mysqli_query($connection, "UPDATE users SET ip='".$ip."'");
+			mysqli_query($connection, "UPDATE users SET ip='".$ip."' WHERE login='".$login."'");
 			return (1);
 		}
 		else
@@ -23,7 +23,7 @@
 
 	function create($login, $auth, $ip)
 	{
-		if ($login == "" || $passwd == "" || $ip == "")
+		if ($login == "" || $auth == "" || $ip == "")
 			return (0);
 		$login = secure($login);
 		$passwd = hash("sha256", secure($auth));
@@ -49,17 +49,28 @@
 		$new = hash("sha256", secure($newpass));
 		$ip = secure($ip);
 		$connection = connect();
-			
 		mysqli_select_db($connection, "db_test");
 		$query = mysqli_query($connection, "SELECT * FROM users WHERE login='".$login."' AND password='".$passwd."'");
 		if (mysqli_num_rows($query) > 0)
 		{
-			mysqli_query($connection, "UPDATE users SET password='".$new."'");
+			mysqli_query($connection, "UPDATE users SET password='".$new."' WHERE login='".$login."'");
 			return (1);
 		}
 		else
 		{
 			return (0);
 		}
+	}
+
+	function delete($login, $password)
+	{
+		if (auth($login, $password, "none") == 1)
+		{
+			$connection = connect();
+			mysqli_select_db($connection, "db_test");
+			$query = mysqli_query($connection, "DELETE FROM users WHERE login='".$login."'");
+			return (1);
+		}
+		return (0);
 	}
 ?>
