@@ -127,6 +127,7 @@ select
 }
 
 .product{
+    
 height: 100%;
 background-repeat: no-repeat;
 background-attachment: fixed;
@@ -138,4 +139,10 @@ background: linear-gradient(135deg, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
+.main {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+}
 /* left menu css */
+
