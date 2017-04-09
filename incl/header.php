@@ -31,7 +31,7 @@ if (auth($_POST['login'], $_POST['passwd'], $_SERVER['REMOTE_ADDR']) != 1 && $_S
 
 				if (auth($_POST['login'], $_POST['passwd'], $_SERVER['REMOTE_ADDR']) == 1 || $_SESSION['user'] != "")
 				{
-					echo "         Welcome " . $_POST['login'];
+					echo "         Welcome " . $_SESSION['user'];
 					echo '<a id=username href="logout.php"><span>Logout</span></a></li>';
 				}
 				else

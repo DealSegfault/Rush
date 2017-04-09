@@ -1,4 +1,14 @@
-<?php include "auth.php"; ?>
+<?php 
+    include "cart.php";
+
+    if ($_POST['submit'] == "Add to cart" || $_POST['submit'] == "Remove to cart")
+    {
+        if ($_POST['submit'] == "Add to cart")
+            add_elem($_POST['id'], "");
+        if ($_POST['submit'] == "Remove to cart")
+            rm_elem($_POST['id'], "");
+    }
+?>
 <!DOCTYPE html>
 <?php
 function		connect_3()
@@ -10,6 +20,7 @@ function		connect_3()
 }
 ?>
 
+<html>
  <?php include "incl/header.php"; ?>
 	
 <body class="product">
@@ -39,13 +50,14 @@ function		connect_3()
     ?>
         <form method="post" action="<?= $new_url_get ?>">
         <li>
-            <div style="display:inline-block;">
+            <div class="item">
                 <div><img width="290px" height="400px" src="<?= $row['img_url']; ?>"></div>
                 <div><span><?= $row['title']; ?></span></div>
                 <div><span><?= $row['price']; ?>€</span></div>
                 <div><input type="hidden" name="id" value="<?= $row['id_product']; ?>"></div>
                 <div><input type="hidden" name="price" value="<?= $row['price']; ?>"></div>
                 <div><input class="button" type="submit" name="submit" value="Add to cart"></div>
+                <div><input class="button" type="submit" name="submit" value="Remove to cart"></div>
             </div>
         </li>
         </form>

@@ -1,10 +1,11 @@
 <?php
 	include "cart.php";
-	init_cart();
 	if ($_POST['login'] != "")
 	{
 		$_SESSION['user'] = $_POST['login'];
 	}
+	if ($_SESSION['init'] == "")
+		init_cart();
 ?>
 
 <!DOCTYPE html>
@@ -16,20 +17,15 @@
     	<section class="sidenav">
 			<article class="active" id="Home" s style="background-image:url('resources/scarf_new.jpg');color:white;">
 				<p>Spring Collection !</p>
-				<div >
-				</div>
 			</article>
 			<article id="Women" style="background-image:url('resources/scarf2.jpg');color:white;">
-				<p><a href="women.php">Women</p>
-				</div>
+				<p>Women</p>
 			</article>
 			<article id="Men" style="background-image:url('resources/scarf1.jpg');color:white;">
 				<p><a href="men.php">Men</p>
 			</article>
 			<article style="background-image:url('resources/scarf3.jpg');color:white;">
-				<p><a href="auth.php">Login</p><p><a href="create.php">Register</p>
-				<div id="Login">
-				</div>
+				<p><a href="index.php">Login</p><p><a href="index.php">Register</p>
 			</article>
 		</section>		
 	</body>
